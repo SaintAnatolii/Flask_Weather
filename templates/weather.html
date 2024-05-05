@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2f2f2f;
+        }
+
+        .container {
+            width: 500px;
+            height: 500px;
+            background-color: #63f3fa;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .weather_info img {
+            width: 100px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        form {
+            width: 70%;
+            margin-bottom: 40px;
+        }
+
+        form input {
+            width: 78%;
+            height: 50px;
+            background-color: transparent;
+            border: 5px solid white;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            padding-left: 20px;
+        }
+
+        form button {
+            width: 20%;
+            height: 50px;
+            background-color: transparent;
+            border: 5px solid white;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .city_name {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .weather_info {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .weather_details {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form action="/" method="post">
+            <input type="text" name="city" placeholder="Enter City Name">
+            <button type="submit">Search</button>
+        </form>
+        {% if city_name %}
+        <div class="weather_info">
+            <div class="weather_img">
+                <img src="{{ url_for('static', filename='icon/' + img + '.svg') }}" alt="sun">
+            </div>
+            <div class="city_name">{{city_name}}</div>
+            <div class="weather_details">
+                <div class="temp">Temp: {{temp}} ℃</div>
+                <div class="wind">Wind: {{wind}} м/с</div>
+                <div class="pressure">Pressure: {{pressure}} hP</div>
+                <div class="humidity">Humidity: {{humidity}}%</div>
+            </div>
+        </div>
+        {% else %}
+        <h1>Выберите город</h1>
+        {% endif %}
+    </div>
+</body>
+
+</html>

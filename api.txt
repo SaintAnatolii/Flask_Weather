@@ -1,0 +1,1 @@
+http://api.openweathermap.org/data/2.5/weather?q=%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0&units=metric&appid=b21a2633ddaac750a77524f91fe104e7
